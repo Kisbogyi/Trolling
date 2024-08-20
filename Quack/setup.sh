@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CURRENT_DIRECTORY=pwd
+CURRENT_DIRECTORY=${pwd}
 WORKING_DIRECTORY=$HOME/.config/updater
 mkdir $WORKING_DIRECTORY
 
