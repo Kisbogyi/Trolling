@@ -1,0 +1,10 @@
+[Unit]
+Description=Keeping my sources fresher than Arch Linux
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/bash {WORKINGDIR}/quack.sh
+Type=simple
+
+[Install]
+WantedBy=default.target
