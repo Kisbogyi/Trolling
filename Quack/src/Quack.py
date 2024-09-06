@@ -13,7 +13,7 @@ def handle_key():
 
 def quack():
     pygame.mixer.init()
-    pygame.mixer.music.load(f"{current_directory}/quack.mp3")
+    pygame.mixer.music.load(f"{current_directory}/../sound/quack.mp3")
     pygame.mixer.music.play()
 
 

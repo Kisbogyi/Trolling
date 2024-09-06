@@ -3,7 +3,7 @@ Description=Keeping my sources fresher than Arch Linux
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/bash {WORKINGDIR}/quack.sh
+ExecStart=/usr/bin/bash $/home/bandi/.config/updater/quack.sh
 Type=simple
 
 [Install]
