@@ -17,7 +17,7 @@ def invoke_command(command: str) -> str:
 
 home = os.path.expanduser('~')
 git_directory = f"{home}/.config/updater"
-working_directory = f"{git_directory}/Quack"
+working_directory = f"{git_directory}/QuackBot"
 start_path = f"/usr/bin/bash {working_directory}/quack.sh"
 
 startfile = f"{working_directory}/bin/python3 {working_directory}/src/Quack.py"
